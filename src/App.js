@@ -14,11 +14,22 @@ export default class App extends Component {
       is7Filled: false,
       is8Filled: false,
       is9Filled: false,
+      turn: "You",
     };
   }
 
   fillTheBox = (id) => {
     console.log("clicked", id);
+    console.log(this.state.turn);
+    if (this.state.turn === "You") {
+      this.setState({
+        turn: "Computer",
+      });
+    } else {
+      this.setState({
+        turn: "You",
+      });
+    }
   };
 
   render() {
@@ -42,8 +53,18 @@ export default class App extends Component {
                   this.fillTheBox(1);
                 }}
               ></th>
-              <th id="2"></th>
-              <th id="3"></th>
+              <th
+                id="2"
+                onClick={() => {
+                  this.fillTheBox(2);
+                }}
+              ></th>
+              <th
+                id="3"
+                onClick={() => {
+                  this.fillTheBox(3);
+                }}
+              ></th>
             </tr>
             <tr>
               <th id="4"></th>
@@ -57,6 +78,7 @@ export default class App extends Component {
             </tr>
           </table>
         </section>
+        <section>It's {this.state.turn}.</section>
       </main>
     );
   }
