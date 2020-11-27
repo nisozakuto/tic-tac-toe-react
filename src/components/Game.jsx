@@ -20,6 +20,24 @@ const Game = () => {
         setStepNumber(historyPoint.length)
         setXisNext(!xIsNext)
     }
+
+    const jumpTo = (step) =>{
+        setStepNumber(step)
+        setXisNext(step % 2 === 0)
+        
+    }
+    const renderMoves = () =>
+    history.map((_step, move ) => {
+        const destination = move ? `Go to move ${move}` : "Go to start"
+        return(
+            <li key={move} >
+                <button onClick={()=> jumpTo(move)}>
+                    {destination}
+                </button>
+            </li>
+        )
+    })
+
     return(
         <>
             <h1>Tic Tac Toe with React</h1>
