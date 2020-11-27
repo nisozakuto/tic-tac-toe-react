@@ -1,8 +1,9 @@
 import React from 'react'
 
 const Square=({value,onClick}) =>{
+    const style = value ? `squares ${value}` : `squares`
     return(
-        <button onClick={onClick}>
+        <button classname={style} onClick={onClick} >
             {value}
         </button>
     )
